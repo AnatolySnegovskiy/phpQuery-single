@@ -1,17 +1,12 @@
 # phpQuery-single
-phpQuery onefile composer.Continuous maintenance,Welcome PR.
+it's fork https://github.com/jae-jae/phpQuery-single
 
-`QueryList` base on phpQuery: https://github.com/jae-jae/QueryList
-
-phpQuery单文件版本,持续维护，欢迎PR.
-> phpQuery项目主页:http://code.google.com/p/phpquery/
-
-`QueryList`是基于phpQuery的采集工具: https://github.com/jae-jae/QueryList
+remove dead code by psalm
 
 ## Composer Installation
-Packagist: https://packagist.org/packages/jaeger/phpquery-single
+Packagist: https://packagist.org/packages/carriongrow/php-query-single
 ```
-composer require jaeger/phpquery-single
+composer require carriongrow/php-query-single
 ```
 
 ## Usage

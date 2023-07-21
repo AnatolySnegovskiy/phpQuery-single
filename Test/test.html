@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+    <script src="https://assets.jimstatic.com/ckies.js.9fbbf4d2cdd6c26ee84e.js"></script>
+
+    <script src="https://assets.jimstatic.com/cookieControl.js.6a20677ade6879dca5b5.js"></script>
+    <script>window.CookieControlSet.setToOff();</script>
+
+    <style>html,body{margin:0}.hidden{display:none}.n{padding:5px}#emotion-header{position:relative}#emotion-header-logo,#emotion-header-title{position:absolute}</style>
+
+    <link href="https://u.jimcdn.com/cms/o/s398b2d35978a58d7/layout/l7d1b2183057c9793/css/main.css?t=1689840238" rel="stylesheet" type="text/css" id="jimdo_main_css"/>
+    <link href="https://u.jimcdn.com/cms/o/s398b2d35978a58d7/layout/l7d1b2183057c9793/css/layout.css?t=1481798904" rel="stylesheet" type="text/css" id="jimdo_layout_css"/>
+    <link href="https://u.jimcdn.com/cms/o/s398b2d35978a58d7/layout/l7d1b2183057c9793/css/font.css?t=1689840238" rel="stylesheet" type="text/css" id="jimdo_font_css"/>
+    <script>     /* <![CDATA[ */     /*!  loadCss [c]2014 @scottjehl, Filament Group, Inc.  Licensed MIT */     window.loadCSS = window.loadCss = function(e,n,t){var r,l=window.document,a=l.createElement("link");if(n)r=n;else{var i=(l.body||l.getElementsByTagName("head")[0]).childNodes;r=i[i.length-1]}var o=l.styleSheets;a.rel="stylesheet",a.href=e,a.media="only x",r.parentNode.insertBefore(a,n?r:r.nextSibling);var d=function(e){for(var n=a.href,t=o.length;t--;)if(o[t].href===n)return e.call(a);setTimeout(function(){d(e)})};return a.onloadcssdefined=d,d(function(){a.media=t||"all"}),a};     window.onloadCSS = function(n,o){n.onload=function(){n.onload=null,o&&o.call(n)},"isApplicationInstalled"in navigator&&"onloadcssdefined"in n&&n.onloadcssdefined(o)}     /* ]]> */ </script>     <script>
+    // <![CDATA[
+    onloadCSS(loadCss('https://assets.jimstatic.com/web_oldtemplate.css.484168258c63bd4f69a74e0370dc7ab9.css') , function() {
+        this.id = 'jimdo_web_css';
+    });
+    // ]]>
+</script>
+    <link href="https://assets.jimstatic.com/web_oldtemplate.css.484168258c63bd4f69a74e0370dc7ab9.css" rel="preload" as="style"/>
+    <noscript>
+        <link href="https://assets.jimstatic.com/web_oldtemplate.css.484168258c63bd4f69a74e0370dc7ab9.css" rel="stylesheet"/>
+    </noscript>
+
+    <script> (function(window) { 'use strict'; var regBuff = window.__regModuleBuffer = []; var regModuleBuffer = function() { var args = [].slice.call(arguments); regBuff.push(args); }; if (!window.regModule) { window.regModule = regModuleBuffer; } })(window); </script>
+    <script src="https://assets.jimstatic.com/web.js.e3bd97f20a2cbccdd4e2.js" async="true"></script>
+
+    <script type="text/javascript">
+        //<![CDATA[
+
+        var menu_on = false;
+
+        function switch_to_hard() {
+            setCookie('switch_mode', 'hard' , '/');
+            scheme = (getCookie('switch_scheme')) ? getCookie('switch_scheme') : 0;
+            size = (getCookie('switch_size')) ? getCookie('switch_size') : 1;
+            color = ['#fff', '#000', '#063462'];
+            bg =    ['#000', '#fff', '#9DD1FF'];
+            font_size = ['18px', '22px', '26px'];
+            var stl = document.createElement('style');
+
+            stl.innerHTML += 'body, p, td, div, h1, h2, h3 {color: ' + color[scheme] + '!important; background: ' + bg[scheme] + '!important; font-size:  ' + font_size[size] + '!important;}';
+            stl.innerHTML += 'h1, h2, h3 {font-weight: bold !important;}';
+            stl.innerHTML += 'h1 {font-size: 150% !important;}';
+            stl.innerHTML += 'h2 {font-size: 130% !important;}';
+            stl.innerHTML += 'h3 {font-size: 115% !important;}';
+            stl.innerHTML += 'ul.mainNav1 a {color: ' + color[scheme] + '!important;}';
+            stl.innerHTML += '#emotion-header-img {display: none !important;}';
+            stl.innerHTML += '#gj-wrapper {border: 0; box-shadow: none !important; -webkit-box-shadow: none !important;}';
+            stl.innerHTML += '#gj-menu {display: none !important;}';
+
+
+            //Здесь описывать изменения внешнего вида страницы
+
+            document.head.appendChild(stl);
+            show_mode_menu();
+            return false;
+        }
+
+        function change_mode(param, value) {
+            setCookie(param, value , '/');
+            switch_to_hard();
+            return false;
+        }
+
+        function show_mode_menu() {
+
+            if (menu_on) return false;
+            menu_on = true;
+
+            var switch_menu = document.createElement('div');
+            switch_menu.className = 'switch_menu';
+            switch_menu.innerHTML += '<a href="#" id="switch_to_normal">Обычный режим<\/a>';
+            switch_menu.innerHTML += '<span>Размер шрифта:<\/span>';
+            switch_menu.innerHTML += '<a href="#" id="s1">A<\/a>';
+            switch_menu.innerHTML += '<a href="#" id="s2">A<\/a>';
+            switch_menu.innerHTML += '<a href="#" id="s3">A<\/a>';
+            switch_menu.innerHTML += '<span>Цветовая схема:<\/span>';
+            switch_menu.innerHTML += '<a href="#" id="a1">A<\/a>';
+            switch_menu.innerHTML += '<a href="#" id="a2">A<\/a>';
+            switch_menu.innerHTML += '<a href="#" id="a3">A<\/a>';
+
+            document.body.appendChild(switch_menu);
+            document.body.insertBefore(switch_menu, document.body.firstChild);
+
+            document.getElementById('a1').onclick = function() { return change_mode('switch_scheme', '0') }
+            document.getElementById('a2').onclick = function() { return change_mode('switch_scheme', '1') }
+            document.getElementById('a3').onclick = function() { return change_mode('switch_scheme', '2') }
+            document.getElementById('s1').onclick = function() { return change_mode('switch_size', '0') }
+            document.getElementById('s2').onclick = function() { return change_mode('switch_size', '1') }
+            document.getElementById('s3').onclick = function() { return change_mode('switch_size', '2') }
+
+            document.getElementById('switch_to_normal').onclick = function() {
+                setCookie('switch_mode', 'normal' , '/');
+                location.reload();
+                return false;
+            }
+        }
+
+        window.onload = function() {
+            if (getCookie('switch_mode') == 'hard') switch_to_hard();
+            var switch_elem = document.createElement('div');
+            switch_elem.innerHTML = '<a href="#" id="switch_to_hard">Версия для слабовидящих<\/a>';
+            switch_elem.className = 'switch_elem';
+            document.body.appendChild(switch_elem);
+            switch_elem.onclick = function() { return switch_to_hard() }
+        }
+
+        function setCookie (name, value, path) { document.cookie = name + "=" + escape(value); }
+        function getCookie(name) { var cookie = " " + document.cookie; var search = " " + name + "=";   var setStr = null; var offset = 0;      var end = 0;    if (cookie.length > 0) { offset = cookie.indexOf(search); if (offset != -1) { offset += search.length; end = cookie.indexOf(";", offset); if (end == -1) { end = cookie.length; } setStr = unescape(cookie.substring(offset, end)); } } return(setStr);}
+
+        //]]>
+    </script>
+
+    <style type="text/css">
+        /*<![CDATA[*/
+        .switch_menu, .switch_elem { text-align: center; margin: 10px; }
+        .switch_menu span, .switch_menu a, .switch_elem a { padding: 5px 10px;  margin: 2px; }
+        .switch_menu a, .switch_elem a { border: solid 1px; }
+        .switch_elem a { font-size: 20px; }
+        #s1 { font-size: 16px; }
+        #s2 { font-size: 20px; }
+        #s3 { font-size: 24px; }
+        #a1 { color: #fff; background: #000; }
+        #a2 { color: #000; background: #fff; }
+        #a3 { color: #063462; background: #9DD1FF; }
+        /*]]>*/
+    </style>
+
+
+</head>
+
+<body class="body cc-page cc-page-index cc-indexpage cc-pagemode-default cc-content-parent" id="page-1399956493">
+
+<div id="cc-inner" class="cc-content-parent">
+    <div id="gj-wrapper" class="cc-content-parent">
+        <div id="gj-header">
+
+            <div id="emotion-header" data-action="emoHeader" style="background: transparent;width: 924px; height: 164px;">
+   <img src="https://u.jimcdn.com/cms/o/s398b2d35978a58d7/emotion/crop/header.jpg?t=1441722608" id="emotion-header-img" alt=""/>
+
+
+
+
+
+
+                    <strong id="emotion-header-title" style="             left: 4%;             top: 14%;             font: italic normal 29px/120% Georgia, 'Times New Roman', Times, serif;             color: #3788C9;                         ">Официальный сайт муниципального общеобразовательного
+                        учреждения  «Средняя школа № 92
+                        Краснооктябрьского района Волгограда»</strong>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="c"></div>
+        <div id="gj-side">
+            <div id="gj-navi">
+                <div id="gj-menu"> </div>
+                <div data-container="navigation"><div class="j-nav-variant-standard"><ul id="mainNav1" class="mainNav1"><li id="cc-nav-view-1399956493"><a href="/" class="current level_1"><span>Сведения об образовательной организации</span></a></li><li id="cc-nav-view-2002650993"><a href="/структура-и-органы-управления-образовательной-организацией/" class="level_1"><span>Структура и органы управления образовательной организацией</span></a></li><li id="cc-nav-view-2006397993"><a href="/структура-контроля/" class="level_1"><span>Структура контроля</span></a></li><li id="cc-nav-view-2006397793"><a href="/информация-о-правах-ребенка/" class="level_1"><span>Информация о правах ребенка</span></a></li><li id="cc-nav-view-2006397693"><a href="/доступная-среда/" class="level_1"><span>Доступная среда</span></a></li><li id="cc-nav-view-1400002493"><a href="/документы/" class="level_1"><span>Документы</span></a></li><li id="cc-nav-view-1744931193"><a href="/образование/" class="level_1"><span>Образование</span></a></li><li id="cc-nav-view-1998383393"><a href="/образовательные-стандарты/" class="level_1"><span>Образовательные стандарты</span></a></li><li id="cc-nav-view-1744847393"><a href="/руководство-педагогический-научно-педагогический-состав/" class="level_1"><span>Руководство. Педагогический (научно-педагогический) состав</span></a></li><li id="cc-nav-view-2006398093"><a href="/участие-педагогов-в-научной-деятельности/" class="level_1"><span>Участие педагогов в научной деятельности</span></a></li><li id="cc-nav-view-1998383793"><a href="/материально-техническое-обеспечение-и-оснащенность-образовательного-процесса/" class="level_1"><span>Материально-техническое обеспечение и оснащенность образовательного процесса</span></a></li><li id="cc-nav-view-1998384893"><a href="/стипендии-и-иные-виды-материальной-поддержки/" class="level_1"><span>Стипендии и иные виды материальной поддержки</span></a></li><li id="cc-nav-view-2147198393"><a href="/информация-о-заключении-договоров-с-иностранными-международными-организациями/" class="level_1"><span>Информация о заключении договоров с иностранными (международными организациями</span></a></li><li id="cc-nav-view-1998385693"><a href="/платные-образовательные-услуги/" class="level_1"><span>Платные образовательные услуги</span></a></li><li id="cc-nav-view-1998385993"><a href="/финансово-хозяйственная-деятельность/" class="level_1"><span>Финансово-хозяйственная деятельность</span></a></li><li id="cc-nav-view-1998388893"><a href="/вакантные-места-для-приема-перевода-1/" class="level_1"><span>Вакантные места для приема (перевода)</span></a></li><li id="cc-nav-view-1444226793"><a href="/государственная-итоговая-аттестация/" class="level_1"><span>Государственная итоговая аттестация</span></a></li><li id="cc-nav-view-1400003193"><a href="/прием-в-школу/" class="level_1"><span>Прием в школу</span></a></li><li id="cc-nav-view-2006398193"><a href="/график-консультаций-педагогов-для-родителей/" class="level_1"><span>График консультаций педагогов для родителей</span></a></li><li id="cc-nav-view-1744931493"><a href="/антикоррупционная-деятельность/" class="level_1"><span>Антикоррупционная деятельность</span></a></li><li id="cc-nav-view-1997946193"><a href="/региональная-инновационная-площадка/" class="level_1"><span>Региональная инновационная площадка</span></a></li><li id="cc-nav-view-2130265093"><a href="/правоприменительные-процедуры/" class="level_1"><span>Правоприменительные процедуры</span></a></li><li id="cc-nav-view-1400053093"><a href="/блог-новостей/" class="level_1"><span>Блог новостей</span></a></li><li id="cc-nav-view-2143295393"><a href="/всош/" class="level_1"><span>ВСОШ</span></a></li><li id="cc-nav-view-2143763593"><a href="/единый-урок-по-безопасности-в-сети-интернет/" class="level_1"><span>Единый урок по безопасности в сети Интернет</span></a></li><li id="cc-nav-view-2144553393"><a href="/информация-по-уэшке/" class="level_1"><span>Информация по УЭШКЕ</span></a></li><li id="cc-nav-view-2147674493"><a href="/безопасность-в-летний-период/" class="level_1"><span>Безопасность в летний период</span></a></li><li id="cc-nav-view-2147729193"><a href="/нет-наркотикам/" class="level_1"><span>Нет наркотикам!</span></a></li></ul></div></div>
+            </div>
+            <div class="c"></div>
+            <div id="gj-side-contents">
+                <div data-container="sidebar"><div id="cc-matrix-1705116393"><div id="cc-m-10890345293" class="j-module n j-text "><p style="text-align: center;">
+                    <a href="https://esp.volganet.ru" target="_blank" title="https://esp.volganet.ru"><span style="color: #0000ff;"><strong>Регистрация обращения в общеобразовательную организацию в первый
+    класс</strong></span></a>
+                </p></div><div id="cc-m-10890346993" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-8431485993" class="j-module n j-imageSubtitle "><figure class="cc-imagewrapper cc-m-image-align-3">
+                    <a href="http://xn--80abucjiibhv9a.xn--p1ai/" target="_blank"><img srcset="https://image.jimcdn.com/app/cms/image/transf/dimension=108x10000:format=jpg/path/s398b2d35978a58d7/image/if9179f95441c6370/version/1389275630/%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D0%B5%D1%80%D1%81%D1%82%D0%B2%D0%BE-%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%BD%D0%B0%D1%83%D0%BA%D0%B8-%D1%80%D1%84.jpg 108w, https://image.jimcdn.com/app/cms/image/transf/dimension=216x10000:format=jpg/path/s398b2d35978a58d7/image/if9179f95441c6370/version/1389275630/%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D0%B5%D1%80%D1%81%D1%82%D0%B2%D0%BE-%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%BD%D0%B0%D1%83%D0%BA%D0%B8-%D1%80%D1%84.jpg 216w" sizes="(min-width: 108px) 108px, 100vw" id="cc-m-imagesubtitle-image-8431485993" src="https://image.jimcdn.com/app/cms/image/transf/dimension=108x10000:format=jpg/path/s398b2d35978a58d7/image/if9179f95441c6370/version/1389275630/%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D0%B5%D1%80%D1%81%D1%82%D0%B2%D0%BE-%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%BD%D0%B0%D1%83%D0%BA%D0%B8-%D1%80%D1%84.jpg" alt="Министерство образования и науки РФ" class="" data-src-width="300" data-src-height="300" data-src="https://image.jimcdn.com/app/cms/image/transf/dimension=108x10000:format=jpg/path/s398b2d35978a58d7/image/if9179f95441c6370/version/1389275630/%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D0%B5%D1%80%D1%81%D1%82%D0%B2%D0%BE-%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%BD%D0%B0%D1%83%D0%BA%D0%B8-%D1%80%D1%84.jpg" data-image-id="5848596493"/></a>
+
+                </figure>
+
+                    <div class="cc-clear"></div>
+                    <script id="cc-m-reg-8431485993">// <![CDATA[
+
+                    window.regModule("module_imageSubtitle", {"data":{"imageExists":true,"hyperlink":"http:\/\/xn--80abucjiibhv9a.xn--p1ai\/","hyperlink_target":"_blank","hyperlinkAsString":"http:\/\/xn--80abucjiibhv9a.xn--p1ai\/","pinterest":"0","id":8431485993,"widthEqualsContent":"0","resizeWidth":"108","resizeHeight":108},"id":8431485993});
+                    // ]]>
+                    </script></div><div id="cc-m-11391012793" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-7077152793" class="j-module n j-spacing "><div class="cc-m-spacing-wrapper">
+
+                    <div class="cc-m-spacer" style="height: 10px;">
+
+                    </div>
+
+                </div>
+                </div><div id="cc-m-7094785093" class="j-module n j-imageSubtitle "><figure class="cc-imagewrapper cc-m-image-align-3">
+                    <a href="http://www.fipi.ru/" target="_blank"><img srcset="https://image.jimcdn.com/app/cms/image/transf/none/path/s398b2d35978a58d7/image/i04a11041da520175/version/1389275665/%D1%84%D0%B8%D0%BF%D0%B8.gif 166w" sizes="(min-width: 166px) 166px, 100vw" id="cc-m-imagesubtitle-image-7094785093" src="https://image.jimcdn.com/app/cms/image/transf/none/path/s398b2d35978a58d7/image/i04a11041da520175/version/1389275665/%D1%84%D0%B8%D0%BF%D0%B8.gif" alt="ФИПИ" class="" data-src-width="166" data-src-height="58" data-src="https://image.jimcdn.com/app/cms/image/transf/none/path/s398b2d35978a58d7/image/i04a11041da520175/version/1389275665/%D1%84%D0%B8%D0%BF%D0%B8.gif" data-image-id="4942177593"/></a>
+
+                </figure>
+
+                    <div class="cc-clear"></div>
+                    <script id="cc-m-reg-7094785093">// <![CDATA[
+
+                    window.regModule("module_imageSubtitle", {"data":{"imageExists":true,"hyperlink":"http:\/\/www.fipi.ru\/","hyperlink_target":"_blank","hyperlinkAsString":"http:\/\/www.fipi.ru\/","pinterest":"0","id":7094785093,"widthEqualsContent":"0","resizeWidth":166,"resizeHeight":58},"id":7094785093});
+                    // ]]>
+                    </script></div><div id="cc-m-7112691293" class="j-module n j-spacing "><div class="cc-m-spacing-wrapper">
+
+                    <div class="cc-m-spacer" style="height: 10px;">
+
+                    </div>
+
+                </div>
+                </div><div id="cc-m-11391012693" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-9848570493" class="j-module n j-imageSubtitle "><figure class="cc-imagewrapper cc-m-image-align-3">
+                    <a href="http://www.ege.edu.ru/" target="_blank"><img srcset="https://image.jimcdn.com/app/cms/image/transf/none/path/s398b2d35978a58d7/image/ib2a862c47ef52a29/version/1416926943/%D0%BE%D1%84%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9-%D0%BF%D0%BE%D1%80%D1%82%D0%B0%D0%BB-%D0%B5%D0%B4%D0%B8%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0.jpg 169w" sizes="(min-width: 169px) 169px, 100vw" id="cc-m-imagesubtitle-image-9848570493" src="https://image.jimcdn.com/app/cms/image/transf/none/path/s398b2d35978a58d7/image/ib2a862c47ef52a29/version/1416926943/%D0%BE%D1%84%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9-%D0%BF%D0%BE%D1%80%D1%82%D0%B0%D0%BB-%D0%B5%D0%B4%D0%B8%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0.jpg" alt="Официальный информационный портал ЕДИНОГО ГОСУДАРСТВЕННОГО ЭКЗАМЕНА" class="" data-src-width="169" data-src-height="78" data-src="https://image.jimcdn.com/app/cms/image/transf/none/path/s398b2d35978a58d7/image/ib2a862c47ef52a29/version/1416926943/%D0%BE%D1%84%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9-%D0%BF%D0%BE%D1%80%D1%82%D0%B0%D0%BB-%D0%B5%D0%B4%D0%B8%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0.jpg" data-image-id="6793002193"/></a>
+
+                </figure>
+
+                    <div class="cc-clear"></div>
+                    <script id="cc-m-reg-9848570493">// <![CDATA[
+
+                    window.regModule("module_imageSubtitle", {"data":{"imageExists":true,"hyperlink":"http:\/\/www.ege.edu.ru\/","hyperlink_target":"_blank","hyperlinkAsString":"http:\/\/www.ege.edu.ru\/","pinterest":"0","id":9848570493,"widthEqualsContent":"0","resizeWidth":169,"resizeHeight":78},"id":9848570493});
+                    // ]]>
+                    </script></div><div id="cc-m-7767059293" class="j-module n j-spacing "><div class="cc-m-spacing-wrapper">
+
+                    <div class="cc-m-spacer" style="height: 10px;">
+
+                    </div>
+
+                </div>
+                </div><div id="cc-m-11391012593" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-7767043993" class="j-module n j-imageSubtitle "><figure class="cc-imagewrapper cc-m-image-align-3">
+                    <a href="http://pedagogsobr.ru/" target="_blank"><img srcset="https://image.jimcdn.com/app/cms/image/transf/none/path/s398b2d35978a58d7/image/ib22984a204143259/version/1366722060/image.jpg 100w" sizes="(min-width: 100px) 100px, 100vw" id="cc-m-imagesubtitle-image-7767043993" src="https://image.jimcdn.com/app/cms/image/transf/none/path/s398b2d35978a58d7/image/ib22984a204143259/version/1366722060/image.jpg" alt="" class="" data-src-width="100" data-src-height="100" data-src="https://image.jimcdn.com/app/cms/image/transf/none/path/s398b2d35978a58d7/image/ib22984a204143259/version/1366722060/image.jpg" data-image-id="5379622393"/></a>
+
+                </figure>
+
+                    <div class="cc-clear"></div>
+                    <script id="cc-m-reg-7767043993">// <![CDATA[
+
+                    window.regModule("module_imageSubtitle", {"data":{"imageExists":true,"hyperlink":"http:\/\/pedagogsobr.ru\/","hyperlink_target":"_blank","hyperlinkAsString":"http:\/\/pedagogsobr.ru\/","pinterest":"0","id":7767043993,"widthEqualsContent":"0","resizeWidth":100,"resizeHeight":100},"id":7767043993});
+                    // ]]>
+                    </script></div><div id="cc-m-11391012493" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-11391009593" class="j-module n j-text "><p style="text-align: center;">
+    <span style="font-size: 15px;"><strong><a href="http://www.apkpro.ru/lessons" target="_blank" title="http://www.apkpro.ru/lessons">Календарь образовательных событий на
+    2018-2019гг.</a></strong></span>
+                </p></div><div id="cc-m-11415077693" class="j-module n j-hr ">    <div class="hr"></div>
+                </div></div></div>
+                <div class="c"></div>
+            </div>
+        </div>
+        <div id="gj-contents" class="cc-content-parent">
+            <div id="content_area" data-container="content"><div id="content_start"></div>
+
+                <div id="cc-matrix-1705116193"><div id="cc-m-11443144593" class="j-module n j-text "><p style="padding-left: 30px;">
+    <span style="font-size: 28px; color: #ff0000;"><strong>Внимание! Это устаревшая версия сайта. Новый официальный сайт      МОУ СШ № 92 Волгограда находится по
+    адресу:</strong></span>
+                </p></div><div id="cc-m-11443144793" class="j-module n j-text "><p style="text-align: center;">
+                    <a href="http://school92.vlg-ktu.ru/" target="_blank" title="http://school92.vlg-ktu.ru/"><span style="color: #1f0f4d; font-size: 30px;">http://school92.vlg-ktu.ru/</span></a>
+                </p></div><div id="cc-m-11443145793" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-10628366493" class="j-module n j-text "><p style="text-align: center;">
+                    <span style="font-size: 18px;"><strong>ОСНОВНЫЕ СВЕДЕНИЯ</strong></span>
+                </p></div><div id="cc-m-8629006893" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-8629006293" class="j-module n j-imageSubtitle "><figure class="cc-imagewrapper cc-m-image-align-3">
+                    <img srcset="https://image.jimcdn.com/app/cms/image/transf/dimension=320x10000:format=jpg/path/s398b2d35978a58d7/image/i6db016d889a46d71/version/1389281070/image.jpg 320w, https://image.jimcdn.com/app/cms/image/transf/dimension=400x10000:format=jpg/path/s398b2d35978a58d7/image/i6db016d889a46d71/version/1389281070/image.jpg 400w, https://image.jimcdn.com/app/cms/image/transf/dimension=640x10000:format=jpg/path/s398b2d35978a58d7/image/i6db016d889a46d71/version/1389281070/image.jpg 640w, https://image.jimcdn.com/app/cms/image/transf/dimension=800x10000:format=jpg/path/s398b2d35978a58d7/image/i6db016d889a46d71/version/1389281070/image.jpg 800w" sizes="(min-width: 400px) 400px, 100vw" id="cc-m-imagesubtitle-image-8629006293" src="https://image.jimcdn.com/app/cms/image/transf/dimension=400x10000:format=jpg/path/s398b2d35978a58d7/image/i6db016d889a46d71/version/1389281070/image.jpg" alt="" class="" data-src-width="1374" data-src-height="1224" data-src="https://image.jimcdn.com/app/cms/image/transf/dimension=400x10000:format=jpg/path/s398b2d35978a58d7/image/i6db016d889a46d71/version/1389281070/image.jpg" data-image-id="6033123093"/>
+
+                </figure>
+
+                    <div class="cc-clear"></div>
+                    <script id="cc-m-reg-8629006293">// <![CDATA[
+
+                    window.regModule("module_imageSubtitle", {"data":{"imageExists":true,"hyperlink":"","hyperlink_target":"","hyperlinkAsString":"","pinterest":"0","id":8629006293,"widthEqualsContent":"0","resizeWidth":"400","resizeHeight":357},"id":8629006293});
+                    // ]]>
+                    </script></div><div id="cc-m-8628969893" class="j-module n j-header "><h3 class="" id="cc-m-header-8628969893">Адрес школы</h3></div><div id="cc-m-8628971793" class="j-module n j-text "><div>
+                    <span style="font-family: Arial;">400064, Россия, г.Волгоград, </span><span style="font-family: Arial;">Краснооктябрьский район, </span><span style="font-family: Arial;">ул. им.
+    Вершинина, д. 5а.</span>
+                </div>
+
+                    <div>
+                        <span style="font-family: Arial;"><em>Телефоны:</em> </span>(8442)73-15-23; (8442)98-21-72; (8442)98-21-73.
+                    </div>
+
+                    <div>
+                        <span style="font-family: Arial;"><em>Факс:</em> </span><span style="font-family: Arial;">(8442)73-15-23.</span>
+                    </div>
+
+                    <div>
+                        <span style="font-family: Arial;">Учредитель школы: Город-Герой Волгоград.</span>
+                    </div>
+
+                    <div>
+                        <span style="font-family: Arial;">Филиалы отсутствуют.</span>
+                    </div></div><div id="cc-m-7071119693" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-7070703093" class="j-module n j-googlemaps ">
+
+                    <div id="cc-m-map-7070703093">
+                        <div class="cc-map-wrapper" style="height: 460px;">
+                            <iframe class="cc-map-embed-iframe" width="100%" height="460" frameborder="0" allowfullscreen="allowfullscreen" style="border: 0;" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBs_lAfpuIjfx7DGisR7oUh1ZZ_C5qtGKc&amp;q=48.7672440856%2C44.5475150228&amp;center=48.7682365082%2C44.5486415506&amp;zoom=16&amp;maptype=roadmap">
+                            </iframe>
+                        </div>
+                    </div>
+                    <script id="cc-m-reg-7070703093">// <![CDATA[
+
+                    window.regModule("module_googlemaps", {"id":7070703093,"selector":"#cc-m-map-7070703093","position":{"lat":48.76823650819204658546368591487407684326171875,"lng":44.5486415505870496645002276636660099029541015625,"zoom":16},"mapTypeDefault":"roadmap","withinCms":false,"minHeight":200,"maxHeight":1000,"height":"460","embedUrlQueryParams":{"key":"AIzaSyBs_lAfpuIjfx7DGisR7oUh1ZZ_C5qtGKc","q":"48.7672440856,44.5475150228","center":"48.7682365082,44.5486415506","zoom":"16","maptype":"roadmap"},"embedBaseUrl":"https:\/\/www.google.com\/maps\/embed\/v1\/place?key=AIzaSyBt9wuJT4E1LiRbJVwVHYnJZHpKhgfqCUE"});
+                    // ]]>
+                    </script></div><div id="cc-m-8628974493" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-7070747893" class="j-module n j-text "><p style="text-align: justify;">
+    <span>Основана школа в 1961 году как восьмилетняя,  в 1969 году  была реорганизована в среднюю общеобразовательную, а в 1980 году получила новое здание проектной мощностью на 1176
+    ученических мест.</span>
+                </p>
+
+                    <p style="text-align: justify;">
+                        <span> </span>
+                    </p></div><div id="cc-m-7071119993" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-8628982993" class="j-module n j-header "><h3 class="" id="cc-m-header-8628982993">Режим и график работы</h3></div><div id="cc-m-8673068893" class="j-module n j-text "><p>
+                    Понедельник - Пятница 7:30 - 20:00
+                </p>
+
+                    <p>
+                        Суббота 7:30 - 14:00
+                    </p>
+
+                    <p>
+                        Воскресенье - выходной день.
+                    </p></div><div id="cc-m-7070701493" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-8628994393" class="j-module n j-header "><h3 class="" id="cc-m-header-8628994393">Постановление о закреплении за МОУ территории</h3></div><div id="cc-m-10104908593" class="j-module n j-downloadDocument "><div class="clearover">
+                    <div class="leftDownload">
+
+                        <a class="j-m-dowload" href="/app/download/10104908593/%D0%9F%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%BE+%D0%B7%D0%B0%D0%BA%D1%80%D0%B5%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D1%82%D0%B5%D1%80%D1%80%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B9.pdf?t=1564082429">            <img src="https://assets.jimstatic.com/s/img/cc/icons/pdf.png" width="51" height="51" class="downloadImage" alt="Download"/>
+                        </a>
+                    </div>
+
+                    <div data-name="download-description" class="rightDownload">
+
+
+                        <div class="cc-m-download-file">
+                            <div class="cc-m-download-file-name">Постановление о закрепление территорий.p</div>
+                            <div class="cc-m-download-file-info">
+                                <span class="cc-m-download-file-type">Adobe Acrobat Document</span>
+                                <span class="cc-m-download-file-size">950.8 KB</span>
+                            </div>
+                            <div class="cc-m-download-file-link"><a href="/app/download/10104908593/%D0%9F%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%BE+%D0%B7%D0%B0%D0%BA%D1%80%D0%B5%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D1%82%D0%B5%D1%80%D1%80%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B9.pdf?t=1564082429" class="cc-m-download-link">Download</a></div>
+                        </div>
+                    </div>
+
+
+                </div>
+                    <script id="cc-m-reg-10104908593">// <![CDATA[
+
+                    window.regModule("module_downloadDocument", {"variant":"default","selector":"#cc-m-download-10104908593","id":"10104908593","showpreview":true,"fileExists":true});
+                    // ]]>
+                    </script></div><div id="cc-m-7487528493" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-10037052193" class="j-module n j-imageSubtitle "><figure class="cc-imagewrapper cc-m-image-align-3">
+                    <a href="http://92tv.ru/" target="_blank"><img srcset="https://image.jimcdn.com/app/cms/image/transf/dimension=173x10000:format=jpg/path/s398b2d35978a58d7/image/i46fcab96693304eb/version/1441723034/image.jpg 173w, https://image.jimcdn.com/app/cms/image/transf/dimension=320x10000:format=jpg/path/s398b2d35978a58d7/image/i46fcab96693304eb/version/1441723034/image.jpg 320w, https://image.jimcdn.com/app/cms/image/transf/dimension=346x10000:format=jpg/path/s398b2d35978a58d7/image/i46fcab96693304eb/version/1441723034/image.jpg 346w" sizes="(min-width: 173px) 173px, 100vw" id="cc-m-imagesubtitle-image-10037052193" src="https://image.jimcdn.com/app/cms/image/transf/dimension=173x10000:format=jpg/path/s398b2d35978a58d7/image/i46fcab96693304eb/version/1441723034/image.jpg" alt="" class="" data-src-width="633" data-src-height="600" data-src="https://image.jimcdn.com/app/cms/image/transf/dimension=173x10000:format=jpg/path/s398b2d35978a58d7/image/i46fcab96693304eb/version/1441723034/image.jpg" data-image-id="6998367193"/></a>
+
+                </figure>
+
+                    <div class="cc-clear"></div>
+                    <script id="cc-m-reg-10037052193">// <![CDATA[
+
+                    window.regModule("module_imageSubtitle", {"data":{"imageExists":true,"hyperlink":"http:\/\/92tv.ru\/","hyperlink_target":"_blank","hyperlinkAsString":"http:\/\/92tv.ru\/","pinterest":"0","id":10037052193,"widthEqualsContent":"0","resizeWidth":"173","resizeHeight":164},"id":10037052193});
+                    // ]]>
+                    </script></div><div id="cc-m-10037053493" class="j-module n j-hr ">    <div class="hr"></div>
+                </div><div id="cc-m-10037052893" class="j-module n j-imageSubtitle "><figure class="cc-imagewrapper cc-m-image-align-3">
+                    <a href="https://92parallel.wordpress.com/" target="_blank"><img srcset="https://image.jimcdn.com/app/cms/image/transf/dimension=320x10000:format=jpg/path/s398b2d35978a58d7/image/ie17ac323f7a70e18/version/1441723063/image.jpg 320w, https://image.jimcdn.com/app/cms/image/transf/dimension=454x10000:format=jpg/path/s398b2d35978a58d7/image/ie17ac323f7a70e18/version/1441723063/image.jpg 454w, https://image.jimcdn.com/app/cms/image/transf/dimension=640x10000:format=jpg/path/s398b2d35978a58d7/image/ie17ac323f7a70e18/version/1441723063/image.jpg 640w, https://image.jimcdn.com/app/cms/image/transf/dimension=908x10000:format=jpg/path/s398b2d35978a58d7/image/ie17ac323f7a70e18/version/1441723063/image.jpg 908w" sizes="(min-width: 454px) 454px, 100vw" id="cc-m-imagesubtitle-image-10037052893" src="https://image.jimcdn.com/app/cms/image/transf/dimension=454x10000:format=jpg/path/s398b2d35978a58d7/image/ie17ac323f7a70e18/version/1441723063/image.jpg" alt="" class="" data-src-width="940" data-src-height="198" data-src="https://image.jimcdn.com/app/cms/image/transf/dimension=454x10000:format=jpg/path/s398b2d35978a58d7/image/ie17ac323f7a70e18/version/1441723063/image.jpg" data-image-id="6998368093"/></a>
+
+                </figure>
+
+                    <div class="cc-clear"></div>
+                    <script id="cc-m-reg-10037052893">// <![CDATA[
+
+                    window.regModule("module_imageSubtitle", {"data":{"imageExists":true,"hyperlink":"https:\/\/92parallel.wordpress.com\/","hyperlink_target":"_blank","hyperlinkAsString":"https:\/\/92parallel.wordpress.com\/","pinterest":"0","id":10037052893,"widthEqualsContent":"0","resizeWidth":"454","resizeHeight":96},"id":10037052893});
+                    // ]]>
+                    </script></div><div id="cc-m-10037051293" class="j-module n j-hr ">    <div class="hr"></div>
+                </div></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="c"></div>
+    <div id="gj-footer">
+        <div id="gj-footertop"></div>
+        <div id="gj-footercontentwrap">
+            <div id="gj-footercontents">
+                <div id="contentfooter" data-container="footer">
+
+    <span class="loggedout">
+        <a rel="nofollow" id="login" href="/login">Log in</a>
+    </span>
+
+                        <span class="loggedin">
+    <a rel="nofollow" id="logout" target="_top" href="https://cms.e.jimdo.com/app/cms/logout.php">
+        Log out    </a>
+    |
+    <a rel="nofollow" id="edit" target="_top" href="https://a.jimdo.com/app/auth/signin/jumpcms/?page=1399956493">Edit</a>
+</span>
+                    </div>
+ </div>
+
+            </div>
+        </div>
+    </div></div>
+<ul class="cc-FloatingButtonBarContainer cc-FloatingButtonBarContainer-right hidden">
+
+    <!-- scroll to top button -->
+    <li class="cc-FloatingButtonBarContainer-button-scroll">
+        <a href="javascript:void(0);" title="Scroll to top">
+            <span>Scroll to top</span>
+        </a>
+    </li>
+    <script>// <![CDATA[
+
+    window.regModule("common_scrolltotop", []);
+    // ]]>
+    </script>    </ul>
+
+<div id="loginbox" class="hidden">
+
+    <div id="loginbox-header">
+
+        <a class="cc-close" title="Close this element" href="#">Close</a>
+
+        <div class="c"></div>
+
+    </div>
+
+    <div id="loginbox-content">
+
+        <div id="resendpw"></div>
+
+        <div id="loginboxOuter"></div>
+    </div>
+</div>
+<div id="loginbox-darklayer" class="hidden"></div>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDBL3P" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+</body>
+</html>
